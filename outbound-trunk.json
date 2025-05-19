@@ -1,0 +1,9 @@
+{
+  "trunk": {
+    "name": "My Outbound Trunk",
+    "address": "ai-browser-trunk.pstn.twilio.com",
+    "numbers": ["+18666441953"],
+    "auth_username": "lazzloe",
+    "auth_password": "NE@kjZiR745CJvS"
+  }
+}
