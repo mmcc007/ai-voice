@@ -64,13 +64,28 @@ ssh -i "$SSH_KEY" "$EC2_HOST" << 'EOF'
             echo "Warning: Virtual environment not found at .venv"
         fi
         
-        # Restart the service
+        # FastAPI service is already set up, no need to recreate the service file
+        echo "FastAPI server service is already configured..."
+
+        # Reload systemd to recognize the new service
+        sudo systemctl daemon-reload
+
+        # Enable the FastAPI service to start on boot
+        sudo systemctl enable fastapi-server.service
+        
+        # Restart the services
         echo "Restarting LiveKit agent service..."
         sudo systemctl restart livekit-agent
         
+        echo "Starting FastAPI server service..."
+        sudo systemctl restart fastapi-server
+        
         # Check service status
-        echo "Service status:"
+        echo "LiveKit agent service status:"
         sudo systemctl status livekit-agent --no-pager
+        
+        echo "FastAPI server service status:"
+        sudo systemctl status fastapi-server --no-pager
     fi
 EOF
 
