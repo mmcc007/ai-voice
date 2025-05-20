@@ -1,3 +1,6 @@
 livekit-agents[deepgram,openai,cartesia,silero,turn-detector]~=1.0
 livekit-plugins-noise-cancellation~=0.2
 python-dotenv
+fastapi>=0.104.0
+uvicorn>=0.24.0
+pydantic>=2.4.2

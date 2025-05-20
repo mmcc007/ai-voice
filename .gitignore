@@ -1,2 +1,4 @@
 .venv
 .env
+web-app/.next
+web-app/node_modules
